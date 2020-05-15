@@ -1,6 +1,8 @@
 <div class="container pad20">
   <h1 class="text-underline"> <%= @cocktail.name %> </h1>
-<!-- image? -->
+  <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag @cocktail.photo.key, width: 400, height: 300, crop: :fill %>
+  <% end %>
   <div class="pad10">
     <% if @cocktail.doses.empty? %>
     <p class="text-gray">
